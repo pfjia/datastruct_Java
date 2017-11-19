@@ -1,4 +1,4 @@
-package chapter3;
+package ch3;
 
 
 import static java.util.stream.Collectors.toList;

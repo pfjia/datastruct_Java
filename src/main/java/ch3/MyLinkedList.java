@@ -1,7 +1,5 @@
-package chapter3;
+package ch3;
 
-
-import org.omg.CORBA.NO_IMPLEMENT;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;

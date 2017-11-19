@@ -26,25 +26,43 @@ public class SeparateChainingHashTable<E> {
 		for (int i = 0; i < table.length; i++) {
 			table[i] = new LinkedList<>();
 		}
-
 	}
 
 
+	/**
+	 * Insert into the hash table.if the item is already present,the do nothing.
+	 * @param x the item to insert
+	 */
 	public void insert(E x) {
-
+		List<E> whichList = table[myHash(x)];
+		if (!whichList.contains(x)) {
+			whichList.add(x);
+			if (++size > table.length) {
+				rehash();
+			}
+		}
 	}
 
 
+	/**
+	 * Remove from the hash table.
+	 * @param x the item to remove
+	 */
 	public void remove(E x) {
+		List<E> whichList = table[myHash(x)];
+		if (whichList.contains(x)) {
+			whichList.remove(x);
+			size--;
+		}
 
 	}
 
 
-    /**
-     * Find an item in the hash table.
-     * @param x the item to search for.
-     * @return  true if x is not found
-     */
+	/**
+	 * Find an item in the hash table.
+	 * @param x the item /to search for.
+	 * @return  true if x is  found
+	 */
 	public boolean contains(E x) {
 		int index = myHash(x);
 		return table[index].contains(x);
@@ -68,9 +86,24 @@ public class SeparateChainingHashTable<E> {
 	private int size;
 
 
+    /**
+     * Rehashing for separate chaining hash table.
+     */
 	private void rehash() {
-
-	}
+	    List<E>[] oldTable=table;
+        //create new double-size , empty table
+	    table=new List[nextPrime(table.length*2)];
+        for (int j=0;j<table.length;j++){
+	        table[j]=new LinkedList<>();
+        }
+        // copy table over
+	    size=0;
+        for (List<E> list : oldTable) {
+            for (E e : list) {
+               insert(e);
+            }
+        }
+    }
 
 
 	private int myHash(E x) {
@@ -110,12 +143,13 @@ public class SeparateChainingHashTable<E> {
 
 
 	public static void main(String[] args) {
-		List<Integer> integers = IntStream.range(0, 100).boxed()
-				.collect(Collectors.toList());
-		for (Integer integer : integers) {
-			if (isPrime(integer)) {
-				System.out.println(integer + " is prime");
-			}
-		}
-	}
+        System.out.println(failure(0.9));
+    }
+
+
+	public static double failure(double load){
+	    return 0.5*(1+1/Math.pow((1-load),2));
+    }
+
+
 }

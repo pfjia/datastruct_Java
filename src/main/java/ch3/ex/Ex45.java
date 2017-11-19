@@ -1,4 +1,4 @@
-package chapter3.ex;
+package ch3.ex;
 
 
 import java.util.*;
