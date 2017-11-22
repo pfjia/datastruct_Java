@@ -7,23 +7,7 @@ package ch4;
  * @since 2017/11/16 8:44
  */
 public class BinarySearchTree<E extends Comparable<? super E>> {
-	private static class BinaryNode<E> {
-		public BinaryNode(E element) {
-			this(element, null, null);
-		}
 
-
-		public BinaryNode(E element, BinaryNode<E> left, BinaryNode<E> right) {
-			this.element = element;
-			this.left = left;
-			this.right = right;
-		}
-
-
-		private E element;
-		private BinaryNode<E> left;
-		private BinaryNode<E> right;
-	}
 
 
 	private BinaryNode<E> root;
