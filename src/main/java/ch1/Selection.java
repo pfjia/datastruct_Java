@@ -90,12 +90,4 @@ public class Selection {
 		}
 		return nums;
 	}
-
-	public static void main(String[] args) {
-		int[] nums = { 1, 6, 2, 4, 7, 8, 9, 4, 5 };
-		System.out.println(Arrays.toString(bubbleSort(nums)));
-		System.out.println(Arrays.toString(bubbleReverseSort(nums)));
-		System.out.println(Arrays.toString(selectionSort(nums)));
-		System.out.println(Arrays.toString(selectionReverseSort(nums)));
-	}
 }
