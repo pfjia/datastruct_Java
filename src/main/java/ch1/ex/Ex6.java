@@ -32,21 +32,6 @@ public class Ex6 {
 		}
 	}
 
-	// public void permute(char[] str, int low, int high) {
-	// if (low == high) {
-	// for (int i = 0; i <= high; i++) {
-	// System.out.print(str[i]);
-	// }
-	// return;
-	// }
-	// for (int i = low; i <= high; i++) {
-	// char[] clone = str.clone();
-	// Swap.swap(clone, low, i);
-	// permute(clone, low + 1, high);
-	// }
-	// }
-
-
 	public static void main(String[] args) {
 		new Ex6().permute("abc".toCharArray(), 0, 2);
 	}

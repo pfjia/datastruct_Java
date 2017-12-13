@@ -3,9 +3,7 @@
   <component name="EclipseCodeFormatterProjectSettings">
     <option name="projectSpecificProfile">
       <ProjectSpecificProfile>
-        <option name="formatter" value="ECLIPSE" />
         <option name="pathToConfigFileJava" value="$APPLICATION_HOME_DIR$/code-style/code-style.xml" />
-        <option name="selectedJavaProfile" value="code-style.xml" />
       </ProjectSpecificProfile>
     </option>
   </component>
